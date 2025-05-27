@@ -1,10 +1,12 @@
 import { Component, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [RouterLink],
   template: `
     <p>home works!</p>
+    <a routerLink="/todos">TODOs</a>
     <p>{{counterValue()}}</p>
     <button (click)="increment()">Increment</button>
     <p>{{title()}}</p>
@@ -13,7 +15,12 @@ import { Component, signal } from '@angular/core';
       (keyup)="onChangeHandler($event)"
     />
   `,
-  styles: ``,
+  styles: `
+    p {
+      display: flex;
+      padding: 10px;
+    }
+  `,
 })
 export class HomeComponent {
   counterValue = signal(0)
